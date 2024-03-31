@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import "./styles/variables";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: Outfit;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+body{
+  background-color: $dark-blue;
+  height: 100%;
+}
+.layoutContainer{
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  @media screen and (max-width:478px) {
+    flex-direction: column;
+  }
+}
+
+.container{
+  padding-top: 64px;
+  padding-bottom: 52px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 19px;
+  overflow: hidden;
+  @media screen and (max-width:478px) {
+    padding-top: 24px;
+    padding-left:16px;
+    gap: 24px;
+  }
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  .label{
+    font-size: 32px;
+    line-height: 1;
+    color: $white;
+    font-weight: 300;
+  }
+  .bottomOverlay{
+    background: linear-gradient(to bottom, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.75) 100% );
+    .svgIcon{
+      width: 12px;
+      height: 12px;
+      path{
+        fill: rgba($white, 0.75)
+      }
+    }
+  }
+  @media screen and (max-width:478px) {
+    gap: 16px;
+    .label{
+      font-size: 20px;
+    }
+  }
+}
+
+.hasDot{
+  position: relative;
+  &::before{
+    content:"";
+    position: absolute;
+    left:0;
+    top:50%;
+    transform: translate(-50%, -50%);
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: rgba($white, 0.5);
+  }
+}
+
+.svgBottomIcon{
+  width: 12px;
+  height: 12px;
+  path{
+    fill:rgba($white, .75)
+  }
+}
+
+.accountWrapper{
+  padding-top: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 72px;
+  .form{
+    max-width: 400px;
+    background: $semi-dark-blue;
+    padding: 32px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (max-width:478px) {
+    padding-top: 48px;
+    gap: 58px;
+    .form{
+      padding: 24px;
+    }
+  }
+}
